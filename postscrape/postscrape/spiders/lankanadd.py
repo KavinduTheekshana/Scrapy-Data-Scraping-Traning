@@ -2,16 +2,16 @@ from turtle import title
 import scrapy
 
 class PostsSpider(scrapy.Spider):
-    name = "posts"
+    name = "lanka"
 
     start_urls = [
-        'https://www.zyte.com/blog/'
+        'https://lankanad.com/all'
     ]
 
     def parse(self, response):
-        for post in response.css('div.oxy-post'):
+        for post in response.css('post_post__1F3_x'):
             yield{
-                'title':post.css('.oxy-post-wrap a::text')[0].get()
+                'title':post.css('.post_card_title__1sNeD::text')[0].get()
             }
 
 
